@@ -1,7 +1,0 @@
-export class OfflineService {
-  constructor ($window, $log) {
-    'ngInject';
-
-    this.activate($
-  }
-}
