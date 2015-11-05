@@ -1,5 +1,5 @@
 export class MainController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($rootScope, $timeout, offlineService, webDevTec, toastr) {
     'ngInject';
 
     this.awesomeThings = [];
@@ -7,14 +7,21 @@ export class MainController {
     this.creationDate = 1446706001372;
     this.toastr = toastr;
 
-    this.activate($timeout, webDevTec);
+    this.activate($rootScope, $timeout, offlineService, webDevTec);
   }
 
-  activate($timeout, webDevTec) {
+  activate($rootScope, $timeout, offlineService, webDevTec) {
     this.getWebDevTec(webDevTec);
     $timeout(() => {
       this.classAnimation = 'rubberBand';
     }, 4000);
+
+    $rootScope.$watch(() => offlineService.online, () => {
+      this.classes = {
+        online: offlineService.online,
+        offline: !offlineService.online
+      }
+    });
   }
 
   getWebDevTec(webDevTec) {

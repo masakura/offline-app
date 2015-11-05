@@ -11,7 +11,7 @@ gulp.task('manifest', () => {
       hash: true,
       preferOnline: true,
       network: ['*'],
-      filename: 'app.manifesft',
+      filename: 'app.manifest',
       exclude: 'app.manifest'
     }))
     .pipe(gulp.dest('dist'));

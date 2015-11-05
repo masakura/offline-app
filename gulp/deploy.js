@@ -10,5 +10,5 @@ gulp.task('gh-pages', function () {
 });
 
 gulp.task('deploy', function () {
-  runSequence('clean', ['html', 'fonts', 'other'] , 'gh-pages');
+  runSequence('clean', ['html', 'fonts', 'other'] , 'manifest', 'gh-pages');
 });
